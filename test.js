@@ -1,5 +1,5 @@
 ﻿'use strict'
 
 console.log("Привет!");
-alert("Hello world!")
+// alert("Hello world!")
 document.write("SilkovMaksim")
