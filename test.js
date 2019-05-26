@@ -14,6 +14,8 @@ alert("Тебя зовут " + userName + " и тебе " + ageUser + " лет")
 alert(a+ageUser)
 alert(hello+a)
 
+var user(name: userName; age: ageUser)
+
 /*console.log("Привет!");
 alert("Hello world!")
 document.write("SilkovMaksim")*/
