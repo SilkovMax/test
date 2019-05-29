@@ -38,10 +38,20 @@ console.log(user);
 alert("Hello world!")
 document.write("SilkovMaksim")*/
 
-var a = [5,54,2];
+/*var a = [5,54,2];
 var b = ['d','h', 5, 78];
 var c = ['String1', 'String2'];
 //console.log(b[4]);
 for (var i = 0; i<a.length; i++) {
   console.log(a[i]);
-}
+}*/
+var arr=[];
+for ( var i=0;i<10;i++){
+	arr.push(Math.round( Math.random()*100));
+	}
+alert(arr);
+alert( Math.max.apply(null,arr);
+alert( Math.min.apply(null,arr);
+/*alert(arr.sort( function(a,b) {
+	return b-a
+});/*
