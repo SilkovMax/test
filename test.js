@@ -45,13 +45,19 @@ var c = ['String1', 'String2'];
 for (var i = 0; i<a.length; i++) {
   console.log(a[i]);
 }*/
+
+var x = document.getElementById("myText");
+console.log(x);
+
+
 var arr=[];
 for ( var i=0;i<10;i++){
 	arr.push(Math.round( Math.random()*100));
 	}
-alert(arr);
-alert( Math.max.apply(null,arr);
-alert( Math.min.apply(null,arr);
-/*alert(arr.sort( function(a,b) {
-	return b-a
-});/*
+console.log(arr);
+console.log(Math.min(...arr));
+console.log(Math.max(...arr));
+console.log(arr.sort(function(a,b) { return b - a } ))
+//alert(arr.sort( function(a,b) {
+//	return b-a
+//});
