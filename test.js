@@ -45,12 +45,26 @@ var c = ['String1', 'String2'];
 for (var i = 0; i<a.length; i++) {
   console.log(a[i]);
 }*/
+  butt.onclick = function Fullname() {
+		var fName = document.getElementById("firstName").value;
+		var lName = document.getElementById("lastName").value;
 
-var x = document.getElementById("myText");
-console.log(x);
+		
+		
+		document.getElementById("str").innerHTML="Вас зовут: "+fName + " " + lName;
+		//document.getElementById("str")=console.log(Fullname());
+};
+
+/*function consoleFullname(fName, lName) {
+var fName = document.getElementById("firstName").value;
+var lName = document.getElementById("lastName").value;
+
+	return fName + lName;
+} 
+console.log(consoleFullname());*/
 
 
-var arr=[];
+/*var arr=[];
 for ( var i=0;i<10;i++){
 	arr.push(Math.round( Math.random()*100));
 	}
@@ -60,4 +74,4 @@ console.log(Math.max(...arr));
 console.log(arr.sort(function(a,b) { return b - a } ))
 //alert(arr.sort( function(a,b) {
 //	return b-a
-//});
+//});*/
