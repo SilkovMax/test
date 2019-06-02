@@ -45,22 +45,32 @@ var c = ['String1', 'String2'];
 for (var i = 0; i<a.length; i++) {
   console.log(a[i]);
 }*/
-  butt.onclick = function Fullname() {
-		var fName = document.getElementById("firstName").value;
-		var lName = document.getElementById("lastName").value;
+//var Fullname = null;
 
-		
-		
-		document.getElementById("str").innerHTML="Вас зовут: "+fName + " " + lName;
-		//document.getElementById("str")=console.log(Fullname());
+function Fullname() {
+  var fName = document.getElementById("firstName").value;
+  var lName = document.getElementById("lastName").value;
+
+  document.getElementById("str").innerHTML="Вас зовут: "+fName + " " + lName;
+  return "Вас зовут: "+fName + " " + lName;
 };
+
+//document.getElementById("firstName").onchange = function() { console.log(Fullname()); };
+//document.getElementById("firstName").onchange = function() { };
+document.getElementById("firstName").addEventListener("change", Fullname);
+document.getElementById("butt").addEventListener("click", function() {
+  document.getElementById("firstName").removeEventListener("change", Fullname);
+} )
+
+
+
 
 /*function consoleFullname(fName, lName) {
 var fName = document.getElementById("firstName").value;
 var lName = document.getElementById("lastName").value;
 
 	return fName + lName;
-} 
+}
 console.log(consoleFullname());*/
 
 
