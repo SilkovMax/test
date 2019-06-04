@@ -3,10 +3,19 @@
 		<meta charset="UTF-8">
 	</head>
 	<body>
-			 Имя: <input type="text" id="firstName" placeholder="Введите свое Имя" value="">
-			 Фамилия: <input type="text" id="lastName" placeholder="Введите свою Фамилию" value="">
+		<form>
+		<div>
+			 <label for="firstName">Имя:</label>
+			 <input type="text" id="firstName" placeholder="Введите свое Имя" value="">
+			 <label for="lastName">Фамилия:</label>
+			 <input type="text" id="lastName" placeholder="Введите свою Фамилию" value="">
 			 <input id="butt" type="button" value="Готово"/><br><br>
+		</div>
+		<div>
+			<input type="reset" value="Сбросить">
+		</div>
 			 <div id="str"></div>
+		</form>
 			 <script type="text/javascript" src="test.js"></script>
 	</body>
 </html>

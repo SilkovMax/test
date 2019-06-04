@@ -47,6 +47,8 @@ for (var i = 0; i<a.length; i++) {
 }*/
 //var Fullname = null;
 
+
+
 function Fullname() {
   var fName = document.getElementById("firstName").value;
   var lName = document.getElementById("lastName").value;
@@ -57,10 +59,14 @@ function Fullname() {
 
 //document.getElementById("firstName").onchange = function() { console.log(Fullname()); };
 //document.getElementById("firstName").onchange = function() { };
-document.getElementById("firstName").addEventListener("change", Fullname);
+document.getElementById("firstName").addEventListener("input", Fullname);
+document.getElementById("lastName").addEventListener("input", Fullname);
+
 document.getElementById("butt").addEventListener("click", function() {
   document.getElementById("firstName").removeEventListener("change", Fullname);
+  document.getElementById("lastName").removeEventListener("change", Fullname);
 } )
+
 
 
 
