@@ -47,9 +47,26 @@ for (var i = 0; i<a.length; i++) {
 }*/
 //var Fullname = null;
 
+var a = [[5,7,6], [4,9,2], [3,9,0]];
 
+var Users = {
+  Maxim: { height: 187, weight: 80},
+  Alex: { height: 165, weight: 67},
+  Robert: { height: 178, weight: 87},
+  showUser: function() { return this["Maxim"]; }
+};
+console.log(Users.showUser());
+//console.log(a[0][0]);
+//console.log(Users);
+/*
+var x;
+for (x in Users) {
+ console.log(Users[x]);
+}
+Users.Andrey = { height: 167, weight: 80 };
+console.log(Users);
 
-function Fullname() {
+function doInputToFullname() {
   var fName = document.getElementById("firstName").value;
   var lName = document.getElementById("lastName").value;
 
@@ -59,13 +76,20 @@ function Fullname() {
 
 //document.getElementById("firstName").onchange = function() { console.log(Fullname()); };
 //document.getElementById("firstName").onchange = function() { };
-document.getElementById("firstName").addEventListener("input", Fullname);
-document.getElementById("lastName").addEventListener("input", Fullname);
 
-document.getElementById("butt").addEventListener("click", function() {
-  document.getElementById("firstName").removeEventListener("change", Fullname);
-  document.getElementById("lastName").removeEventListener("change", Fullname);
-} )
+function doSwitch() {
+  if (document.getElementById("flag").checked) {
+    document.getElementById("firstName").addEventListener("input", doInputToFullname);
+    document.getElementById("lastName").addEventListener("input", doInputToFullname);
+  } else {
+    document.getElementById("firstName").removeEventListener("input", doInputToFullname);
+    document.getElementById("lastName").removeEventListener("input", doInputToFullname);
+  }
+};
+
+document.getElementById("firstName").addEventListener("input", doInputToFullname);
+document.getElementById("lastName").addEventListener("input", doInputToFullname);
+document.getElementById("flag").addEventListener("change", doSwitch);
 
 
 
