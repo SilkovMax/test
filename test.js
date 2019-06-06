@@ -58,7 +58,7 @@ var Users = {
 console.log(Users.showUser());
 //console.log(a[0][0]);
 //console.log(Users);
-/*
+
 var x;
 for (x in Users) {
  console.log(Users[x]);
@@ -93,7 +93,25 @@ document.getElementById("flag").addEventListener("change", doSwitch);
 
 
 
+var MaksimUser = {
+  fname: document.getElementById("firstName").value,
+  lname: document.getElementById("lastName").value,
+  age: document.getElementById("ageUser").value,
+  weight: document.getElementById("weightUser").value
+  
+};
 
+console.log(MaksimUser)
+
+var MaksimUserR = {
+  fname: "Maksim",
+  lname: "Silkov",
+  age: 27,
+  weight: 79
+  
+};
+
+console.log(JSON.stringify(MaksimUserR));
 
 /*function consoleFullname(fName, lName) {
 var fName = document.getElementById("firstName").value;
@@ -115,3 +133,19 @@ console.log(arr.sort(function(a,b) { return b - a } ))
 //alert(arr.sort( function(a,b) {
 //	return b-a
 //});*/
+
+/*function ToFullName () {
+	var fName = document.getElementById("firstName").value;
+	var lName = document.getElementById("lastName").value;
+	document.getElementById("str").innerHTML= "Your name: " + fName + " " + lName;
+	return "Your name " + fName + " " + lName;
+};
+document.getElementById("firstName").addEventListener("input", ToFullName);
+document.getElementById("lastName").addEventListener("input", ToFullName);
+
+document.getElementById("butt").addEventListener("click", function() {
+	document.getElementById("firstName").removeEventListener("input", ToFullName);
+	document.getElementById("lastName").removeEventListener("input", ToFullName);
+});*/
+
+
