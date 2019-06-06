@@ -93,25 +93,26 @@ document.getElementById("flag").addEventListener("change", doSwitch);
 
 
 
-var MaksimUser = {
-  fname: document.getElementById("firstName").value,
-  lname: document.getElementById("lastName").value,
-  age: document.getElementById("ageUser").value,
-  weight: document.getElementById("weightUser").value
-  
+var MaksimUser = {};
+
+function doGetUserData() {
+  MaksimUser.fname = document.getElementById("firstName").value;
+  MaksimUser.lname = document.getElementById("lastName").value;
+  MaksimUser.age = document.getElementById("ageUser").value;
+  MaksimUser.weight = document.getElementById("weightUser").value;
+  console.log(JSON.stringify(MaksimUser));
 };
 
-console.log(MaksimUser)
-
+/*
 var MaksimUserR = {
   fname: "Maksim",
   lname: "Silkov",
   age: 27,
   weight: 79
-  
-};
 
-console.log(JSON.stringify(MaksimUserR));
+};
+*/
+document.getElementById("butt").addEventListener("click", doGetUserData);
 
 /*function consoleFullname(fName, lName) {
 var fName = document.getElementById("firstName").value;
@@ -147,5 +148,3 @@ document.getElementById("butt").addEventListener("click", function() {
 	document.getElementById("firstName").removeEventListener("input", ToFullName);
 	document.getElementById("lastName").removeEventListener("input", ToFullName);
 });*/
-
-
