@@ -47,7 +47,7 @@ for (var i = 0; i<a.length; i++) {
 }*/
 //var Fullname = null;
 
-var a = [[5,7,6], [4,9,2], [3,9,0]];
+/*var a = [[5,7,6], [4,9,2], [3,9,0]];
 
 var Users = {
   Maxim: { height: 187, weight: 80},
@@ -59,7 +59,7 @@ console.log(Users.showUser());
 //console.log(a[0][0]);
 //console.log(Users);
 
-var x;
+/*var x;
 for (x in Users) {
  console.log(Users[x]);
 }
@@ -77,7 +77,7 @@ function doInputToFullname() {
 //document.getElementById("firstName").onchange = function() { console.log(Fullname()); };
 //document.getElementById("firstName").onchange = function() { };
 
-function doSwitch() {
+/*function doSwitch() {
   if (document.getElementById("flag").checked) {
     document.getElementById("firstName").addEventListener("input", doInputToFullname);
     document.getElementById("lastName").addEventListener("input", doInputToFullname);
@@ -89,19 +89,23 @@ function doSwitch() {
 
 document.getElementById("firstName").addEventListener("input", doInputToFullname);
 document.getElementById("lastName").addEventListener("input", doInputToFullname);
-document.getElementById("flag").addEventListener("change", doSwitch);
+document.getElementById("flag").addEventListener("change", doSwitch);*/
 
 
 
-var MaksimUser = {
-  fname: document.getElementById("firstName").value,
-  lname: document.getElementById("lastName").value,
-  age: document.getElementById("ageUser").value,
-  weight: document.getElementById("weightUser").value
-  
-};
+var MaksimUser = {};
 
-console.log(MaksimUser)
+function doGetUserData() {
+  MaksimUser.fname = document.getElementById("firstName").value;
+  MaksimUser.phoneNumber = document.getElementById("phoneNumber").value;
+  MaksimUser.emailUser = document.getElementById("emailUser").value;
+  MaksimUser.textComment = document.getElementById("textComment").value;
+  console.log(JSON.stringify(MaksimUser));
+  }
+
+  //document.getElementById("button").addEventListener("Click", doGetUserData);
+  document.getElementById("button").onclick = doGetUserData;
+/*console.log(MaksimUser)
 
 var MaksimUserR = {
   fname: "Maksim",
@@ -111,7 +115,7 @@ var MaksimUserR = {
   
 };
 
-console.log(JSON.stringify(MaksimUserR));
+//console.log(JSON.stringify(MaksimUserR));
 
 /*function consoleFullname(fName, lName) {
 var fName = document.getElementById("firstName").value;
