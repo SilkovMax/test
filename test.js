@@ -47,7 +47,7 @@ for (var i = 0; i<a.length; i++) {
 }*/
 //var Fullname = null;
 
-var a = [[5,7,6], [4,9,2], [3,9,0]];
+/*var a = [[5,7,6], [4,9,2], [3,9,0]];
 
 var Users = {
   Maxim: { height: 187, weight: 80},
@@ -59,7 +59,7 @@ console.log(Users.showUser());
 //console.log(a[0][0]);
 //console.log(Users);
 
-var x;
+/*var x;
 for (x in Users) {
  console.log(Users[x]);
 }
@@ -77,7 +77,7 @@ function doInputToFullname() {
 //document.getElementById("firstName").onchange = function() { console.log(Fullname()); };
 //document.getElementById("firstName").onchange = function() { };
 
-function doSwitch() {
+/*function doSwitch() {
   if (document.getElementById("flag").checked) {
     document.getElementById("firstName").addEventListener("input", doInputToFullname);
     document.getElementById("lastName").addEventListener("input", doInputToFullname);
@@ -89,7 +89,7 @@ function doSwitch() {
 
 document.getElementById("firstName").addEventListener("input", doInputToFullname);
 document.getElementById("lastName").addEventListener("input", doInputToFullname);
-document.getElementById("flag").addEventListener("change", doSwitch);
+document.getElementById("flag").addEventListener("change", doSwitch);*/
 
 
 
@@ -97,6 +97,7 @@ var MaksimUser = {};
 
 function doGetUserData() {
   MaksimUser.fname = document.getElementById("firstName").value;
+<<<<<<< HEAD
   MaksimUser.lname = document.getElementById("lastName").value;
   MaksimUser.age = document.getElementById("ageUser").value;
   MaksimUser.weight = document.getElementById("weightUser").value;
@@ -104,15 +105,31 @@ function doGetUserData() {
 };
 
 /*
+=======
+  MaksimUser.phoneNumber = document.getElementById("phoneNumber").value;
+  MaksimUser.emailUser = document.getElementById("emailUser").value;
+  MaksimUser.textComment = document.getElementById("textComment").value;
+  console.log(JSON.stringify(MaksimUser));
+  }
+
+  //document.getElementById("button").addEventListener("Click", doGetUserData);
+  document.getElementById("button").onclick = doGetUserData;
+/*console.log(MaksimUser)
+
+>>>>>>> 535b7112d421c2a4db24aaca7f333ba3a7960976
 var MaksimUserR = {
   fname: "Maksim",
   lname: "Silkov",
   age: 27,
   weight: 79
 
+<<<<<<< HEAD
 };
 */
 document.getElementById("butt").addEventListener("click", doGetUserData);
+=======
+//console.log(JSON.stringify(MaksimUserR));
+>>>>>>> 535b7112d421c2a4db24aaca7f333ba3a7960976
 
 /*function consoleFullname(fName, lName) {
 var fName = document.getElementById("firstName").value;
