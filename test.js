@@ -91,45 +91,29 @@ document.getElementById("firstName").addEventListener("input", doInputToFullname
 document.getElementById("lastName").addEventListener("input", doInputToFullname);
 document.getElementById("flag").addEventListener("change", doSwitch);*/
 
-
-
 var MaksimUser = {};
 
 function doGetUserData() {
   MaksimUser.fname = document.getElementById("firstName").value;
-<<<<<<< HEAD
-  MaksimUser.lname = document.getElementById("lastName").value;
-  MaksimUser.age = document.getElementById("ageUser").value;
-  MaksimUser.weight = document.getElementById("weightUser").value;
-  console.log(JSON.stringify(MaksimUser));
-};
-
-/*
-=======
   MaksimUser.phoneNumber = document.getElementById("phoneNumber").value;
   MaksimUser.emailUser = document.getElementById("emailUser").value;
   MaksimUser.textComment = document.getElementById("textComment").value;
   console.log(JSON.stringify(MaksimUser));
-  }
+}
 
-  //document.getElementById("button").addEventListener("Click", doGetUserData);
-  document.getElementById("button").onclick = doGetUserData;
+  document.getElementById("button").addEventListener("click", doGetUserData);
+  //document.getElementById("button").onclick = doGetUserData;
 /*console.log(MaksimUser)
 
->>>>>>> 535b7112d421c2a4db24aaca7f333ba3a7960976
 var MaksimUserR = {
   fname: "Maksim",
   lname: "Silkov",
   age: 27,
   weight: 79
-
-<<<<<<< HEAD
 };
 */
-document.getElementById("butt").addEventListener("click", doGetUserData);
-=======
+
 //console.log(JSON.stringify(MaksimUserR));
->>>>>>> 535b7112d421c2a4db24aaca7f333ba3a7960976
 
 /*function consoleFullname(fName, lName) {
 var fName = document.getElementById("firstName").value;
