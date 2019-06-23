@@ -16,9 +16,9 @@
 			 <input type="text" id="weightUser" placeholder="Введите свой вес" value="">
 			 <input id="butt" type="button" value="Готово"/><br><br>
 			 <input type="checkbox" id="flag" checked>-->
-			 
+
 			 <label for="firstName">Имя:</label>
-			 <input type="text" id="firstName" placeholder="Введите свое Имя" value="" required  minlength="2" maxlength="25" pattern="^[а-яёА-ЯЁ]+?"><br><br>
+			 <input type="text" id="firstName" placeholder="Введите свое Имя" value="" required  minlength="2" maxlength="25" pattern="^[а-яёА-ЯЁ]+?" title="Только кириллица"><br><br>
 			 <label for="phoneNumber">Номер телефона: </label>
 			 <input type="tel" id="phoneNumber" placeholder="Введите свой номер телефона" value="" required pattern="[\+]\d{1}\s[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}" minlength="18" maxlength="18">
 			 <span class="form__error">Это поле должно содержать телефон в формате +7 (123) 456-78-90</span><br><br>
@@ -27,7 +27,7 @@
 			 <span class="form__error">Это поле должно содержать E-Mail в формате example@site.com</span><br><br>
 			 <p>Комментарий:<br>
 				<textarea name="comment" id="textComment" minlength="1" maxlength="1000" ></textarea></p>
-			
+
 			<input type="button" id="button" value="Отправить"><br><br>
 			<button type="reset">Сбросить</button>
 			 <!--<div id="str"></div>-->
