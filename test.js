@@ -16,6 +16,7 @@ function doGetUserData() {
 let email = document.getElementById("emailUser").value;
 let phone = document.getElementById("phoneNumber").value;
 
+/* Пример использование XMLHttpRequest
 let isJSON = function (str) {
   try {
     JSON.parse(str);
@@ -91,6 +92,17 @@ let doSend = function (){
 }
 
 document.getElementsByName("btnSend")[0].addEventListener("click", doSend);
+*/
+
+// Для изучения регулярных выражений
+let doValidation = function (str) {
+  let regexp = "/^[а-я]$/i";
+  if (!regexp.exec(str)) {
+    return false;
+  }
+  return true;
+}
+
 
 function validateEmail(email) {
     let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
