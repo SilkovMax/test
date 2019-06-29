@@ -11,10 +11,81 @@ function doGetUserData() {
   MaksimUser.emailUser = document.getElementById("emailUser").value;
   MaksimUser.textComment = document.getElementById("textComment").value;
   Data = JSON.stringify(MaksimUser);
-  //console.log(Data);
+  console.log(Data);
+  
 }
-let email = document.getElementById("emailUser").value;
-let phone = document.getElementById("phoneNumber").value;
+document.getElementById("button").addEventListener("click", doGetUserData);
+//document.getElementById("button").onclick = doGetUserData;
+
+
+function checkEmail() {
+
+    let email = document.getElementById("emailUser");
+    let filter = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    if (!filter.test(email.value)) {
+    alert("Введите корректный Email");
+    email.focus;
+    return false;
+ }
+}
+ document.getElementById("emailUser").addEventListener("blur", checkEmail);
+ 
+ function checkPhone() {
+
+    let phone = document.getElementById("phoneNumber");
+    let filter = /^((\+7|7|8)+([0-9]){10})$/; // regexp для РФ;
+
+    if (!filter.test(phone.value)) {
+    alert("Введите корректный Номер телефона");
+    phone.focus;
+    return false;
+ }
+}
+ document.getElementById("phoneNumber").addEventListener("blur", checkPhone);
+ 
+ 
+let xhr = new XMLHttpRequest();
+let url = "http://5.salderey.z8.ru/test/send.php";
+xhr.open("POST", url, true);
+xhr.setRequestHeader("Content-Type", "application/json");
+xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+        let json = JSON.parse(xhr.responseText);
+        console.log(json.email + ", " + json.password);
+    }
+};
+let data1 = JSON.stringify({});
+xhr.send(data1);
+ 
+/* let x = new XMLHttpRequest();
+x.onreadystatechange = function (){
+  if(this.readyState == 4 && this.status == 200) {
+    console.log(this.responseText);
+  }
+};
+x.open("POST", "http://5.salderey.z8.ru/test/send.php", true);
+x.send(Data);*/
+
+/*let fname = document.getElementById("firstName").value;
+let phoneNumber = document.getElementById("phoneNumber").value;
+let emailUser = document.getElementById("emailUser").value;
+let textComment = document.getElementById("textComment").value;
+
+
+let xhr = new XMLHttpRequest();
+let body = "name=" + fname + "&phone=" + phoneNumber + "&email=" + emailUser + "&comment=" + textComment;
+xhr.open("POST", 'http://5.salderey.z8.ru/test/send.php',true);
+xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+xhr.send(body);
+xhr.onreadystatechange = function() {
+	if(this.readyState == 4 && this.status == 200) {
+    console.log(this.responseText);
+	
+};
+};*/
+
 
 /* Пример использование XMLHttpRequest
 let isJSON = function (str) {
@@ -95,7 +166,7 @@ document.getElementsByName("btnSend")[0].addEventListener("click", doSend);
 */
 
 // Для изучения регулярных выражений
-let doValidation = function (str) {
+/*let doValidation = function (str) {
   let regexp = "/^[а-я]$/i";
   if (!regexp.exec(str)) {
     return false;
@@ -111,14 +182,7 @@ function validateEmail(email) {
 
 console.log( validateEmail(document.getElementById("emailUser").value) ); // false
 document.getElementById("button").addEventListener("click", validateEmail);
+*/
 
-/*let x = new XMLHttpRequest();
-x.onreadystatechange = function (){
-  if(this.readyState == 4 && this.status == 200) {
-    console.log(this.responseText);
-  }
-};
-x.open("POST", "https://wixihafi.myhostpoint.ch/send.php", true);
-x.send(Data);
 
-document.getElementById("button").addEventListener("click", doGetUserData);*/
+//document.getElementById("button").addEventListener("click", doGetUserData);
