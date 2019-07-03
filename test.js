@@ -16,7 +16,7 @@ function doGetUserData() {
   //xhr.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
   xhr.send(Data);
 }
-document.getElementById("button").addEventListener("click", doGetUserData);
+//document.getElementById("button").addEventListener("click", doGetUserData);
 //document.getElementById("button").onclick = doGetUserData;
 
 
@@ -58,6 +58,36 @@ function checkEmail() {
      }
  };
  //let data1 = JSON.stringify({});
+
+ 
+
+
+/*function SendForm () {
+
+let i, j;
+
+for(j=0; j<required.length; j++) {
+    for (i=0; i<document.forms[0].length; i++) {
+        if (document.forms[0].elements[i].tel == required[j] &&
+  document.forms[0].elements[i].value == "" ) {
+            alert('Пожалуйста, введите ' + required_show[j]);
+            document.forms[0].elements[i].focus();
+            return false;
+        }
+    }
+}
+
+return true;
+}*/
+ 
+function SendForm() {
+
+	if (document.getElementById("phoneNumber").value == "" | document.getElementById("emailUser").value == "" ) {
+		alert('Пожалуйста, введите данные в обязательные поля'); 
+		} else {
+		document.getElementById("button").addEventListener("click", doGetUserData);
+	}
+}
 
 
 /* let x = new XMLHttpRequest();
@@ -177,12 +207,12 @@ document.getElementsByName("btnSend")[0].addEventListener("click", doSend);
 }
 
 
-function validateEmail(email) {
-    let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+/*function validateEmail(email) {
+  //  let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
-}
+}*/
 
-console.log( validateEmail(document.getElementById("emailUser").value) ); // false
+/*console.log( validateEmail(document.getElementById("emailUser").value) ); // false
 document.getElementById("button").addEventListener("click", validateEmail);
 */
 

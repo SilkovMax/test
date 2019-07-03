@@ -5,7 +5,7 @@
 		<link href="style.css" rel="stylesheet">
 	</head>
 	<body>
-		<form name="test" class="form" method="#">
+		<form name="test" class="form" method="#" onsubmit="return SendForm();">
 			 <!--<label for="firstName">Имя:</label>
 			 <input type="text" id="firstName" placeholder="Введите свое Имя" value="">
 			 <label for="lastName">Фамилия:</label>
@@ -18,17 +18,17 @@
 			 <input type="checkbox" id="flag" checked>-->
 
 			 <label for="firstName">Имя:</label>
-			 <input type="text" id="firstName" placeholder="Введите свое Имя" value="" required  minlength="2" maxlength="25" pattern="^[a-zA-Zа-яёА-ЯЁ]+?" title="Введите свое имя"><br><br>
+			 <input type="text" id="firstName" placeholder="Введите свое Имя" value="" minlength="2" maxlength="25" pattern="^[a-zA-Zа-яёА-ЯЁ]+?" title="Введите свое имя"><br><br>
 			 <label for="phoneNumber">Номер телефона: </label>
-			 <input type="tel" id="phoneNumber" placeholder="Введите свой номер телефона" value="" required pattern="^((\+7|7|8)+([0-9]){10})$" minlength="11" maxlength="19">
+			 <input type="tel" id="phoneNumber" placeholder="Введите свой номер телефона" value="" pattern="^((\+7|7|8)+([0-9]){10})$" minlength="11" maxlength="19" >
 			 <span class="form__error">Это поле должно содержать телефон в формате +7 (123) 456-78-90</span><br><br>
 			 <label for="emailUser">Email:</label>
-			 <input type="email" id="emailUser" placeholder="Введите свою почту" value="" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" required>
+			 <input type="email" id="emailUser" placeholder="Введите свою почту" value="" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}">
 			 <span class="form__error">Это поле должно содержать E-Mail в формате example@site.com</span><br><br>
 			 <p>Комментарий:<br>
 				<textarea name="comment" id="textComment" minlength="1" maxlength="1000" ></textarea></p>
 
-			<input type="button" id="button" value="Отправить"><br><br>
+			<input type="submit" id="button" value="Отправить"><br><br>
 			<button type="reset">Сбросить</button>
 			 <!--<div id="str"></div>-->
 		</form>
