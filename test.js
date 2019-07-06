@@ -3,92 +3,84 @@
 var MaksimUser = {};
 var Data = "";
 let jsonServerResponse = {};
-//let url = "http://5.salderey.z8.ru/test/send.php";
+let url = "http://5.salderey.z8.ru/test/send.php";
+let xhr = new XMLHttpRequest();
+
+
+xhr.onreadystatechange = function () {
+     if (xhr.readyState === 4 && xhr.status === 200) {
+         let json = JSON.parse(xhr.responseText);
+         console.log(json.stat + ", " + json.msg);
+     }
+ };
+
+ function checkEmail(email) {
+     let filter = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+     if (email!=="" && !filter.test(email)) {
+       //console.log("Введите корректный Email");
+       //alert("Введите корректный Email");
+       return "";
+     }
+     return email;
+ }
+
+ function checkPhone(phone) {
+     let filter = /^(\+7|7|8)?([0-9]{10})$/; // regexp для РФ;
+
+     if (phone!=="" && !filter.test(phone)) {
+       //console.log("Введите корректный Номер телефона");
+       //alert("Введите корректный Номер телефона");
+       return "";
+     }
+     return "+7" + phone.match(filter)[2];
+ }
 
 function doGetUserData() {
   MaksimUser.name = document.getElementById("firstName").value;
   MaksimUser.phone = document.getElementById("phoneNumber").value;
   MaksimUser.email = document.getElementById("emailUser").value;
   MaksimUser.msg = document.getElementById("textComment").value;
+}
+
+function validateUserData() {
+  if (checkPhone(MaksimUser.phone) === "") {
+    console.log("Введите корректный Номер телефона");
+    return false;
+    //document.getElementById("phoneNumber").focus;
+  }
+  MaksimUser.phone = checkPhone(MaksimUser.phone);
+  if (checkEmail(MaksimUser.email) === "") {
+    console.log("Введите корректный Email");
+    return false;
+    //document.getElementById("emailUser").focus;
+  }
+  MaksimUser.email = checkEmail(MaksimUser.email);
+  return true;
+}
+
+function sendUserData() {
   Data = JSON.stringify(MaksimUser);
   console.log(Data);
   xhr.open("POST", url, true);
   //xhr.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
   xhr.send(Data);
 }
-//document.getElementById("button").addEventListener("click", doGetUserData);
-//document.getElementById("button").onclick = doGetUserData;
 
-
-function checkEmail() {
-
-    let email = document.getElementById("emailUser");
-    let filter = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-    if (email.value!=="" && !filter.test(email.value)) {
-      console.log("Введите корректный Email");
-    //alert("Введите корректный Email");
-      email.focus;
-      return false;
+function sendForm() {
+	if (document.getElementById("phoneNumber").value != "" || document.getElementById("emailUser").value != "" ) {
+    doGetUserData();
+    if (validateUserData()) {
+      sendUserData();
     }
-}
- document.getElementById("emailUser").addEventListener("blur", checkEmail);
-
- function checkPhone() {
-
-    let phone = document.getElementById("phoneNumber");
-    let filter = /^((\+7|7|8)+([0-9]){10})$/; // regexp для РФ;
-
-    if (phone.value!=="" && !filter.test(phone.value)) {
-      console.log("Введите корректный Номер телефона");
-    //alert("Введите корректный Номер телефона");
-      phone.focus;
-      return false;
-    }
-}
- document.getElementById("phoneNumber").addEventListener("blur", checkPhone);
-
- let xhr = new XMLHttpRequest();
- let url = "http://5.salderey.z8.ru/test/send.php";
-
- xhr.onreadystatechange = function () {
-     if (xhr.readyState === 4 && xhr.status === 200) {
-         let json = JSON.parse(xhr.responseText);
-         console.log(json.stat + ", " + json.msg);
-     }
- };
- //let data1 = JSON.stringify({});
-
- 
-
-
-/*function SendForm () {
-
-let i, j;
-
-for(j=0; j<required.length; j++) {
-    for (i=0; i<document.forms[0].length; i++) {
-        if (document.forms[0].elements[i].tel == required[j] &&
-  document.forms[0].elements[i].value == "" ) {
-            alert('Пожалуйста, введите ' + required_show[j]);
-            document.forms[0].elements[i].focus();
-            return false;
-        }
-    }
-}
-
-return true;
-}*/
- 
-function SendForm() {
-
-	if (document.getElementById("phoneNumber").value == "" | document.getElementById("emailUser").value == "" ) {
-		alert('Пожалуйста, введите данные в обязательные поля'); 
-		} else {
-		document.getElementById("button").addEventListener("click", doGetUserData);
+	} else {
+		console.log('Пожалуйста, введите данные в обязательные поля');
 	}
 }
 
+document.getElementById("button").addEventListener("click", sendForm);
+document.getElementById("phoneNumber").addEventListener("blur", checkPhone);
+document.getElementById("emailUser").addEventListener("blur", checkEmail);
 
 /* let x = new XMLHttpRequest();
 x.onreadystatechange = function (){
