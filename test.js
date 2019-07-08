@@ -15,25 +15,27 @@ xhr.onreadystatechange = function () {
  };
 
  function checkEmail(email) {
-     let filter = /^(([^!#$%&'*+-/=?^_`{|"(),:;<>@[\]][a-zA-Z0-9]+[!#$%&'*+-/=?^_`{|"(),:;<>[\]]?[a-zA-Z0-9]+){1,64}@[a-zA-Z0-9]+(\.[a-zA-Z]{1,10}){1,3}){0,253}$/;
 
-     if (email!=="" && !filter.test(email)) {
-       //console.log("Введите корректный Email");
-       //alert("Введите корректный Email");
-       return "";
+     let filter = /^[a-z0-9]+([!#$%&'*+-/=?^_`{|"(),:;<>[\]][a-z0-9]+)*@[a-z0-9]+([\.-][a-z0-9]+)*\.[a-z]{2,63}$/i;
+
+     if (email!=="" && email.length>5 && email.length<381 && filter.test(email)) {
+          return email;
+        //console.log("Введите корректный Email");
+        //alert("Введите корректный Email");
      }
-     return email;
+     return "";
  }
 
  function checkPhone(phone) {
-     let filter = /^(\+7|7|8)?([0-9]{10})$/; // regexp для РФ;
+    let filter = /^(\+7|7|8)?([0-9]{10})$/; // regexp для РФ;
 
-     if (phone!=="" && !filter.test(phone)) {
-       //console.log("Введите корректный Номер телефона");
-       //alert("Введите корректный Номер телефона");
-       return "";
-     }
-     return "+7" + phone.match(filter)[2];
+    if (phone!=="" && filter.test(phone)) {
+        return "+7" + phone.match(filter)[2];
+    } else {
+          //console.log("Введите корректный Номер телефона");
+          //alert("Введите корректный Номер телефона");
+    }
+    return "";
  }
 
 function doGetUserData() {
@@ -44,19 +46,24 @@ function doGetUserData() {
 }
 
 function validateUserData() {
-  if (checkPhone(MaksimUser.phone) === "") {
+  let flag = true;
+  if (MaksimUser.phone !== "" && checkPhone(MaksimUser.phone) === "") {
     console.log("Введите корректный Номер телефона");
-    return false;
+    flag = false;
+  //  return checkEmail(MaksimUser.email);
     //document.getElementById("phoneNumber").focus;
   }
   MaksimUser.phone = checkPhone(MaksimUser.phone);
-  if (checkEmail(MaksimUser.email) === "") {
+  console.log(checkEmail(MaksimUser.email));
+  if (MaksimUser.email !== "" && checkEmail(MaksimUser.email) === "") {
     console.log("Введите корректный Email");
-    return false;
     //document.getElementById("emailUser").focus;
+    flag = false;
+  //  return checkPhone(MaksimUser.phone);
   }
   MaksimUser.email = checkEmail(MaksimUser.email);
-  return true;
+
+  return flag;
 }
 
 function sendUserData() {
