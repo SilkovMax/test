@@ -3,7 +3,7 @@
 var MaksimUser = {};
 var Data = "";
 let jsonServerResponse = {};
-let url = "http://5.salderey.z8.ru/test/send.php";
+let url = "https://codelearning.online/test/send.php";
 let xhr = new XMLHttpRequest();
 
 
@@ -85,9 +85,48 @@ function sendForm() {
 	}
 }
 
-document.getElementById("button").addEventListener("click", sendForm);
+document.getElementById("btnSendForm").addEventListener("click", sendForm);
 document.getElementById("phoneNumber").addEventListener("blur", checkPhone);
 document.getElementById("emailUser").addEventListener("blur", checkEmail);
+
+let createLoadingSpinner = function (parentElemId,styleClassName, spinnerId) {
+	let parent = document.getElementById(parentElemId);
+	let actualSpinner = document.getElementById(spinnerId);
+	if (parent && !actualSpinner) {
+		let spinner = document.createElement("div");
+		spinner.setAttribute("id", spinnerId);
+		spinner.classList.add(styleClassName);
+		let childDivs = [];
+		for (let i=0; i<11; i++) {
+			childDivs.push(document.createElement("div"));
+			spinner.appendChild(childDivs[i]);
+		}
+		parent.appendChild(spinner);
+	}
+}
+
+let deleteLoadingSpinner = function(spunnerId) {
+	let spinner = document.getElementById(spinnerId);
+	if (spinner) {
+		spinner.parentNode.removeChild(spinner);
+	}
+}
+
+let hideCaption = function(btnId, className) {
+	let btn = document.getElementById(btnId);
+	if (btn) {
+		btn.classList.toggle(className);
+		btn.firstElementChild.style.display = "none";
+	}
+}
+
+let showCaption =function(btnId, className) {
+	let btn = document.getElementById(btnId);
+	if (btn) {
+		btn.classList.toggle(className);
+		btn.firstElementChild.style.display = "block";
+	}
+}
 
 /* let x = new XMLHttpRequest();
 x.onreadystatechange = function (){
